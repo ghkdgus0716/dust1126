@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+
+.container {position: absolute; width: 30%; top:70px; left:70px; cursor:pointer; border: 0.5px white solid;}
+.image { display: block; width: 100%; height: auto;}
+.overlay { position: absolute; top: 0; bottom: 0; left: 0; right: 0; height: 100%; width: 100%; opacity: 0;
+  transition: .5s ease; background-color: #008CBA;}
+.container:hover .overlay {opacity: 0.5;}
+.text { font-family: 'Noto Sans KR', sans-serif; color: white; font-size: 25px; position: absolute; top: 50%; left: 50%; width:85%; -webkit-transform:translate(-50%, -50%); -ms-transform: translate(-50%, -50%); line-height: 1.6;}
+#dotB{right: 500px; top:350px; width:15px; height:15px; border-radius: 50%; filter: blur(0.5px); background: skyblue; position:absolute; filter: blur(8px);}
+#dotW{right: 500px; top:350px; width:10px; height:10px; border-radius: 50%; filter: blur(0.5px); background: white; position:absolute; filter: blur(1px); cursor: pointer; animation: colors 1.0s infinite;}
+
+#tex1 {font-size: 14px; bottom: 70px; left:70px; width:850px; color:white; position: absolute; line-height: 1.6; opacity: 0.8;}
+#demo {left:650px; top:70px; width:820px; font-size: 30px; color:black; margin:0; position: absolute; line-height: 1.6; font-weight: bold; -webkit-text-stroke: 1px  #008CBA;}
+
+@keyframes colors{
+
+			from{background-color: red;}
+
+			to{background-color:  white;}
+				}
+</style>
+</head>
+<body style="background: black;">
+
+<div class="container">
+  <img src="BlueDot.jpg" alt="Avatar" class="image">
+  <div class="overlay">
+    <div class="text">칼 세이건은 보이저 계획의</br> 화상 팀을 맡았고</br> 이 사진도 칼 세이건의 주도로</br> 촬영된 것이었다.</br> 세이건은 자신의 저서에서,</br> "지구는 광활한 우주에 떠 있는</br> 보잘것없는 존재에 불과함을</br> 사람들에게 가르쳐 주고 싶었다"</br> 라고 밝혔다. 
+</div>
+  </div>
+</div>
+
+<div id = tex1>이 사진에서 지구의 크기는 0.12화소에 불과하며, 작은 점으로 보인다.</br> 촬영 당시 보이저 1호는 태양 공전면에서 32도 위를</br> 지나가고 있었으며, 지구와의 거리는 61억 킬로미터였다. </div>
+
+
+<p id="demo">
+</p>
+
+<div id="dotB"></div>
+<div id="dotW" onclick="typeWriter()"></div>
+
+
+<script type="text/javascript">
+var i = 0;
+var txt = '이런 의도로 그는 보이저 1호의 카메라를 지구 쪽으로 돌릴 것을 지시했다. 많은 반대가 있었으나, 결국 지구를 포함한 6개 행성들을 찍을 수 있었고 이 사진들은 -가족 사진-이라고 불린다. 다만 수성은 너무 밝은 태양빛에 묻혀 버렸고, 화성은 카메라에 반사된 태양광 때문에 촬영할 수 없었다. 지구 사진은 이들 중 하나이다. 이 사진은 1990년 2월 14일 보이저 1호가 촬영했다. 태양이 시야에서 매우 가까운 곳에 있었기 때문에 좁은 앵글로 촬영했다. 사진에서 지구 위를 지나가는 광선은 실제 태양광이 아니라 보이저 1호의 카메라에 태양빛이 반사되어 생긴 것으로, 우연한 효과에 불과하다.';
+var speed = 50;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+</script>
+
+</body>
+</html>
